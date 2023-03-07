@@ -22,9 +22,6 @@
 
 /* USER CODE BEGIN 0 */
 
-#include "visi_genie"
-#include "visi_genie_file_access"
-
 /* USER CODE END 0 */
 
 UART_HandleTypeDef huart4;

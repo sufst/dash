@@ -1,0 +1,3 @@
+[submodule "rtcan"]
+	path = rtcan
+	url = https://github.com/sufst/rtcan
