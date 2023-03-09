@@ -20,6 +20,8 @@
 
 /* Includes ------------------------------------------------------------------*/
 #include "app_threadx.h"
+#include <gpio.h>​ 
+#include <stdint.h>
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
@@ -33,7 +35,7 @@
 
 /* Private define ------------------------------------------------------------*/
 /* USER CODE BEGIN PD */
-
+#define THREAD_STACK_SIZE 1024
 /* USER CODE END PD */
 
 /* Private macro -------------------------------------------------------------*/
@@ -43,12 +45,13 @@
 
 /* Private variables ---------------------------------------------------------*/
 /* USER CODE BEGIN PV */
-
+uint8_t thread_stack[THREAD_STACK_SIZE];
+TX_THREAD thread_ptr;
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
 /* USER CODE BEGIN PFP */
-
+VOID my_thread_entry(ULONG initial_input);
 /* USER CODE END PFP */
 
 /**
@@ -63,6 +66,8 @@ UINT App_ThreadX_Init(VOID *memory_ptr)
 
   /* USER CODE BEGIN App_ThreadX_Init */
   (void)byte_pool;
+
+  tx_thread_create(&thread_ptr, "my thread", my_thread_entry, 0x1234, thread_stack, THREAD_STACK_SIZE, 15, 15, 1, TX_AUTO_START);
   /* USER CODE END App_ThreadX_Init */
 
   return ret;
@@ -87,5 +92,10 @@ void MX_ThreadX_Init(void)
 }
 
 /* USER CODE BEGIN 1 */
-
+VOID my_thread_entry(ULONG initial_input){
+	while(1) {
+		HAL_GPIO_TogglePin(LD2_GPIO_Port, LD2_Pin);
+		tx_thread_sleep(20);
+	}
+}
 /* USER CODE END 1 */
