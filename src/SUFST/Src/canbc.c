@@ -1,5 +1,11 @@
+
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 #include "tx_api.h"
 #include "rtcan.h"
+#include "canbc.h"
 #include "can.h"
 #include "string.h" // for memcpy()
 
@@ -34,6 +40,7 @@ void init_my_thread(TX_BYTE_POOL* app_mem_pool)
 
     // create thread
     tx_thread_create(&my_thread,
+                    "my thread",
                      my_thread_entry,
                      NULL,
                      stack_ptr,
@@ -75,8 +82,8 @@ void my_thread_entry(ULONG thread_input)
         // make a copy of the message but change the ID to 0x101
         rtcan_msg_t new_message;
         new_message.identifier = 0x101;
-        new_message.length = message_ptr->length;
-        memcpy((void*) new_message.data, (void*) message_ptr->data, msg_ptr->length);
+        new_message.length = msg_ptr->length;
+        memcpy((void*) new_message.data, (void*) msg_ptr->data, msg_ptr->length);
 
         // transmit the copied message
         rtcan_transmit(&rtcan, &new_message);
@@ -115,3 +122,7 @@ void HAL_CAN_RxFifo1MsgPendingCallback(CAN_HandleTypeDef* can_h)
 {
     rtcan_handle_rx_it(&rtcan, can_h, 1);
 }
+
+#ifdef __cplusplus
+}
+#endif

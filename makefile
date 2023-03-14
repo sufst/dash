@@ -58,6 +58,7 @@ src/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c \
 src/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_exti.c \
 src/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim.c \
 src/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.c \
+src/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_can.c \
 src/Core/Src/system_stm32f4xx.c \
 src/Middlewares/ST/threadx/common/src/tx_initialize_high_level.c \
 src/Middlewares/ST/threadx/common/src/tx_initialize_kernel_enter.c \
@@ -216,8 +217,11 @@ src/Middlewares/ST/threadx/common/src/txe_timer_deactivate.c \
 src/Middlewares/ST/threadx/common/src/txe_timer_delete.c \
 src/Middlewares/ST/threadx/common/src/txe_timer_info_get.c \
 src/Core/Src/gpio.c \
+src/Core/Src/can.c \
 src/Middlewares/SUFST/rtcan/src/rtcan.c \
-src/SUFST/Src/can.c
+src/Middlewares/SUFST/ViSi-Genie-C-Library/Src/visi_genie_file_access.c \
+src/Middlewares/SUFST/ViSi-Genie-C-Library/Src/visi_genie.c \
+src/SUFST/Src/canbc.c
 
 # ASM sources
 ASM_SOURCES =  \
@@ -305,6 +309,7 @@ C_INCLUDES =  \
 -Isrc/Middlewares/ST/threadx/common/inc/ \
 -Isrc/Middlewares/ST/threadx/ports/cortex_m4/gnu/inc/ \
 -Isrc/Middlewares/SUFST/rtcan/inc/ \
+-Isrc/Middlewares/SUFST/ViSi-Genie-C-Library/inc/ \
 -Isrc/SUFST/Inc
 
 
@@ -326,7 +331,7 @@ CFLAGS += -MMD -MP -MF"$(@:%.o=%.d)"
 # LDFLAGS
 #######################################
 # link script
-LDSCRIPT = STM32F446RETx_FLASH.ld
+LDSCRIPT = src/STM32F446RETx_FLASH.ld
 
 # libraries
 LIBS = -lc -lm -lnosys 
