@@ -216,10 +216,11 @@ src/Middlewares/ST/threadx/common/src/txe_timer_deactivate.c \
 src/Middlewares/ST/threadx/common/src/txe_timer_delete.c \
 src/Middlewares/ST/threadx/common/src/txe_timer_info_get.c \
 src/Core/Src/gpio.c \
-src/Middlewares/SUFST/rtcan/src/rtcan.c \
-src/Middlewares/SUFST/ViSi-Genie-C-Library/Src/visi_genie.c \
-src/Middlewares/SUFST/ViSi-Genie-C-Library/Src/visi_genie_file_access.c \
-src/SUFST/Src/can.c
+src/Middlewares/SUFST/visigenie/src/visi_genie.c \
+src/Middlewares/SUFST/visigenie/Src/visi_genie_file_access.c \
+#rc/SUFST/Src/can.c#
+#src/Middlewares/SUFST/rtcan/src/rtcan.c
+
 
 # ASM sources
 ASM_SOURCES =  \
@@ -306,9 +307,9 @@ C_INCLUDES =  \
 -Isrc/Drivers/CMSIS/Include \
 -Isrc/Middlewares/ST/threadx/common/inc/ \
 -Isrc/Middlewares/ST/threadx/ports/cortex_m4/gnu/inc/ \
--Isrc/Middlewares/SUFST/rtcan/inc/ \
--Isrc/Middlewares/SUFST/Visi_Genie_C_Library/inc/ \
+-Isrc/Middlewares/SUFST/visigenie/inc/ \
 -Isrc/SUFST/Inc
+#-Isrc/Middlewares/SUFST/rtcan/inc/
 
 
 # compile gcc flags
