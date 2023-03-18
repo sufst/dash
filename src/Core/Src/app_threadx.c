@@ -25,6 +25,8 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
+#include "visi_genie.h"
+#include "visi_genie_file_access.h"
 
 /* USER CODE END Includes */
 
@@ -68,6 +70,7 @@ UINT App_ThreadX_Init(VOID *memory_ptr)
   (void)byte_pool;
 
   tx_thread_create(&thread_ptr, "my thread", my_thread_entry, 0x1234, thread_stack, THREAD_STACK_SIZE, 15, 15, 1, TX_AUTO_START);
+  genieBegin();
   /* USER CODE END App_ThreadX_Init */
 
   return ret;
@@ -81,7 +84,7 @@ UINT App_ThreadX_Init(VOID *memory_ptr)
 void MX_ThreadX_Init(void)
 {
   /* USER CODE BEGIN  Before_Kernel_Start */
-
+  
   /* USER CODE END  Before_Kernel_Start */
 
   tx_kernel_enter();
@@ -95,6 +98,7 @@ void MX_ThreadX_Init(void)
 VOID my_thread_entry(ULONG initial_input){
 	while(1) {
 		HAL_GPIO_TogglePin(LD2_GPIO_Port, LD2_Pin);
+    genieWriteObject(GENIE_OBJ_GAUGE, 0, 50);
 		tx_thread_sleep(20);
 	}
 }
