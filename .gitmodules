@@ -1,6 +1,0 @@
-[submodule "rtcan"]
-	path = src/Middlewares/SUFST/rtcan
-	url = https://github.com/sufst/rtcan
-[submodule "ViSi-Genie-C-Library"]
-	path = src/Middlewares/SUFST/ViSi-Genie-C-Library
-	url = https://github.com/4dsystems/ViSi-Genie-C-Library.git
