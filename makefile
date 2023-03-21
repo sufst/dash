@@ -219,8 +219,8 @@ src/Middlewares/ST/threadx/common/src/txe_timer_info_get.c \
 src/Core/Src/gpio.c \
 src/Core/Src/can.c \
 src/Middlewares/SUFST/rtcan/src/rtcan.c \
-src/Middlewares/SUFST/ViSi-Genie-C-Library/Src/visi_genie_file_access.c \
-src/Middlewares/SUFST/ViSi-Genie-C-Library/Src/visi_genie.c \
+src/Middlewares/ViSi-Genie/ViSi-Genie-C-Library/Src/visi_genie_file_access.c \
+src/Middlewares/ViSi-Genie/ViSi-Genie-C-Library/Src/visi_genie.c \
 src/SUFST/Src/canbc.c
 
 # ASM sources
@@ -309,7 +309,7 @@ C_INCLUDES =  \
 -Isrc/Middlewares/ST/threadx/common/inc/ \
 -Isrc/Middlewares/ST/threadx/ports/cortex_m4/gnu/inc/ \
 -Isrc/Middlewares/SUFST/rtcan/inc/ \
--Isrc/Middlewares/SUFST/ViSi-Genie-C-Library/inc/ \
+-Isrc/Middlewares/ViSi-Genie/ViSi-Genie-C-Library/inc/ \
 -Isrc/SUFST/Inc
 
 
