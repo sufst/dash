@@ -128,6 +128,7 @@ src/Drivers/CMSIS/*
 !src/Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f446xx.h
 !src/Drivers/CMSIS/Device/ST/STM32F4xx/Include/system_stm32f4xx.h
 !src/Drivers/CMSIS/Device/ST/STM32F4xx/LICENSE.txt
+!src/Drivers/CMSIS/Include/*
 
 # script outputs
 /scripts/*.h
