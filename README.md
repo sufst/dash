@@ -1,2 +1,1 @@
-# dash
-STAG 12 Dash Firmware
+# STAG 12 Dash Firmware
